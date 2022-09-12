@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text",
+      "maxLength": 100
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "articles"
+    },
+    "story": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::story.story",
+      "inversedBy": "article"
+    },
+    "allergens": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::allergen.allergen",
+      "mappedBy": "articles"
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": [
+        "EUR",
+        "USD",
+        "GBP",
+        "CHF"
+      ]
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "inversedBy": "articles"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "articles"
+    },
+    "menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
+    },
+    "daily": {
+      "type": "boolean"
+    }
+  }
+}

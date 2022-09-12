@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_suggestions",
+  "info": {
+    "singularName": "category-suggestion",
+    "pluralName": "category-suggestions",
+    "displayName": "CategorySuggestion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "categorySuggestion"
+    }
+  }
+}

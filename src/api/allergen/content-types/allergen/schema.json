@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "allergens",
+  "info": {
+    "singularName": "allergen",
+    "pluralName": "allergens",
+    "displayName": "Allergen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "allergens"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "inversedBy": "allergens"
+    }
+  }
+}

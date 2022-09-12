@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "menus"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "eat",
+        "drink",
+        "party"
+      ]
+    },
+    "story_n_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::story-n-type.story-n-type",
+      "inversedBy": "menus"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "address": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "stories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::story.story",
+      "mappedBy": "menu"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "menu"
+    }
+  }
+}

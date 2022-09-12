@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_story_content_contents",
+  "info": {
+    "displayName": "content",
+    "icon": "angry",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "isVideo": {
+      "type": "boolean",
+      "default": false
+    },
+    "content": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    }
+  }
+}
